@@ -1,0 +1,21 @@
+.tabs .tab a{
+    color:white;
+}
+.tabs .tab a:hover {
+    color:white;
+}
+.tabs .indicator {
+    background-color:white;
+}
+
+.title{
+margin-top: 15px;
+font-weight: 800;
+color: transparent;
+font-size:100px;
+background: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e") repeat;
+background-position: 40% 50%;
+-webkit-background-clip: text;
+line-height:90px;
+letter-spacing: -8px;
+}

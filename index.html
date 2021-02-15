@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>HOTEL RURAL</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+      <meta charset="UTF-8">
+      <link rel = "stylesheet"
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet" 
+         href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <link rel = "stylesheet"
+      href = "css/index.css">
+      <script type = "text/javascript"
+         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+      </script> 
+   </head>
+   
+   <body class="container"> 
+      <div class="row">
+        <div class="col s12">
+          <h1 class="title">HOTEL VACILON</h1>
+        </div>
+      </div>
+      <div class="row">
+        <!-- TABULADORES PARA CAMBIAR ENTRE INICIO DE SESIÓN Y REGISTRO -->
+        <div class="col s12">
+          <ul class="tabs tabs-fixed-width light-green darken-4 z-depth-1">
+            <li class="tab col s3"><a href="#login-form">INICIO DE SESIÓN</a></li>
+            <li class="tab col s3"><a href="#signup-form">REGISTRO NUEVA CUENTA</a></li>
+          </ul>
+        </div>
+        
+        <!-- FORMULARIO INICIO DE SESIÓN --> 
+        <form class="col s12" id="login-form">
+        <div class="row">
+          <!-- CAMPO CORREO ELECTRÓNICO --> 
+          <div class="input-field col s12">
+            <input id="email-login" type="email" class="validate" required>
+            <label for="email-login">Correo electrónico</label>
+          </div>
+        </div>
+        <div class="row">
+          <!-- CAMPO CONTRASEÑA --> 
+          <div class="input-field col s12">
+            <input id="password-login" type="password" class="validate" required minlength="4">
+            <label for="password-login">Contraseña</label>
+          </div>
+        </div>
+        <div class="row">
+
+          <!-- BOTÓN INICIO SESIÓN -->
+          <button class="btn waves-effect light-green darken-4 col s12 z-depth-1" type="submit">ACCEDER
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </form>
+      
+      
+      <!-- FORMULARIO DE REGISTRO -->
+      <form class="col s12" id="signup-form">
+        <div class="row">
+          
+          <div class="input-field col s12">
+            <input id="nombre" type="text" class="validate" required maxlength="35">
+            <label for="nombre">Nombre</label>
+          </div>
+        </div>
+        <div class="row">
+          
+          <div class="input-field col s12">
+            <input id="password-signup" type="password" class="validate" required minlength="4">
+            <label for="password-signup">Contraseña</label>
+          </div>
+        </div>
+        <div class="row">
+          
+          <div class="input-field col s12">
+            <input id="email-signup" type="email" class="validate" required>
+            <label for="email-signup">Correo electrónico</label>
+          </div>
+        </div>
+
+        
+        <button class="btn waves-effect light-green darken-4 col s12 z-depth-1" type="submit">REGISTRAR
+          <i class="material-icons right">send</i>
+        </button>
+        
+      </form> 
+
+      </div> 
+   </body>
+   <script type="module" src="js/indice.js"></script>
+</html>
