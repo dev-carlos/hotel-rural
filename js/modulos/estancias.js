@@ -1,7 +1,15 @@
 
 
 export const muestraEstancias = (estancia, reserva) => {
-    let divEstancias = document.querySelector("#estancias");
+
+    let divEstancias;
+    if(reserva){
+        divEstancias = document.querySelector('#reservasEstancia');
+    }
+    else{
+        divEstancias = document.querySelector('#estancias');
+    }
+     
     let tipo = estancia.tipo === 'h' ? 'Habitacion' : 'Cabaña';
     let salida = `
             <div class="card blue-grey darken-1">
