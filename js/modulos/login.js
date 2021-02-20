@@ -6,6 +6,7 @@ const login_f = (dato) => {
         sessionStorage.setItem('idUsuario', dato[0].id);
         sessionStorage.setItem('nombre', dato[0].nombre);
         window.location='home.html';
+        
     }
     else {
         M.toast({html: "Usuario o contraseña erroneo",classes:"red"},3000);

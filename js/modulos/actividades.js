@@ -35,8 +35,8 @@ export const dameActividades = () => {
     
     fetch("http://localhost:3000/actividades")
     .then(respuesta => respuesta.json())
-    .then(actividades => sacaEstancias(estancias))
+    .then(actividades => sacaActividades(actividades))
     .catch( error => {
-        M.toast({html: "No se puede obtener estancias.",classes:"red"});
+        M.toast({html: "No se puede obtener actividades.",classes:"red"});
     });
 }

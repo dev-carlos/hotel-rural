@@ -32,9 +32,9 @@ const sacaEstancias = (estancias) => {
     estancias.forEach((estancia) => muestraEstancias(estancia));
 }
 
-export const dameEstancias = () => {
+export const dameEstancias = (tipo) => {
     
-    fetch("http://localhost:3000/estancias")
+    fetch(`http://localhost:3000/estancias?tipo=${tipo}`)
     .then(respuesta => respuesta.json())
     .then(estancias => sacaEstancias(estancias))
     .catch( error => {

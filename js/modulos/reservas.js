@@ -1,6 +1,6 @@
 import { muestraEstancias } from "./estancias.js";
 
-const sacaEstancia = async (reserva) => {
+const sacaEstancias = async (reserva) => {
   
   let respuesta = await fetch(`http://localhost:3000/estancias/${reserva.estanciaId}`);
   let estancia = await respuesta.json();
@@ -10,11 +10,14 @@ const sacaEstancia = async (reserva) => {
 
 const muestraReservas = (reservas) => {
 
-  if (localStorage.nombre) {
+  if (sessionStorage.nombre) {
     document.querySelector("#reserva-nombre").textContent = ' de ' + localStorage.getItem('nombre');
   }
   reservas.forEach((reserva) => {
-    sacaEstancias(reserva);
+    if(reserva.hasOwnProperty('estanciaId')){
+      sacaEstancias(reserva);
+    }
+    
   });
 };
 

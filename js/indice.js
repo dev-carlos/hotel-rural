@@ -1,14 +1,17 @@
 import { enviaLogin } from "./modulos/login.js";
 import { dameEstancias } from "./modulos/estancias.js";
+import { dameActividades } from "./modulos/actividades.js";
 import { generaAlta } from "./modulos/signup.js";
 import { misReservas } from "./modulos/reservas.js";
+import { cargaMenu } from "./modulos/cargaMenu.js";
+import { cargaFooter } from "./modulos/cargaFooter.js";
 
 // Para la página de inicio
 let loginForm = document.querySelector("#login-form");
 // Página signup. Alta de usuario
 let altaUsuario = document.querySelector("#signup-form");
 
-// Para detectar que estamos en la página de "pisos"
+// Para detectar que estamos en la página 
 let pagina = window.location;
 
 ////////////////////////
@@ -31,15 +34,8 @@ let pagina = window.location;
 //////////////////////
 
 
-// Cargamos la barra de menú que es comun a todas las páginas.
-const cargaMenu = () => {
-  
-  fetch("menu.html")
-    .then((response) => response.text())
-    .then((codigo) => {
-      document.querySelector("#menu").innerHTML = codigo;
-    });
-};
+
+//cargamos el extra menu solo en home
 const cargaExtraMenuHome = () =>{
 
   fetch("index_navbar.html")
@@ -49,23 +45,25 @@ const cargaExtraMenuHome = () =>{
     });
 }
 //FIJAROS EN VUESTRO PATH, MI CARPETA SE LLAMA hotel-rural ADAPTAR AL VUESTRO
-if(pagina.pathname != "/hotel-rural" && pagina.pathname != "/hotel-rural/" && pagina.pathname != "/hotel-rural/index.html")
+if(pagina.pathname != "/"  && pagina.pathname != "/index.html")
   cargaMenu();
+  
 
 // Botón Login de página principal
 if (loginForm !== null) {
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log("login");
+    
     let dato = {};
     dato.email = document.querySelector("#email-login").value;
     dato.password = document.querySelector("#password-login").value;
+    console.log(dato);
     enviaLogin(dato);
   });
 }
 
 // Página home, carga los datos de la .
-if (pagina.pathname == "/hotel-rural/home.html") {
+if (pagina.pathname == "/home.html") {
   cargaExtraMenuHome();
 }
 
@@ -79,9 +77,14 @@ if (pagina.pathname == "/contacto.html") {
   
 }
 
-// Página estancias, carga los datos de la BD.
-if (pagina.pathname == "/estancias.html") {
-  dameEstancias();
+// Página habitaciones, carga los datos de la BD.
+if (pagina.pathname == "/habitaciones.html") {
+  dameEstancias('h');
+}
+
+// Página cabañas, carga los datos de la BD.
+if (pagina.pathname == "/cabanyas.html") {
+  dameEstancias('c');
 }
 
 // Página actividades, carga los datos de la BD.
@@ -106,6 +109,9 @@ if (altaUsuario !== null) {
   });
 }
 
+cargaFooter();
+
 if ($('#tabs_swipe').length) {
       $('#tabs_swipe').tabs({ 'swipeable': true });
 }
+$('.tooltipped').tooltip();
