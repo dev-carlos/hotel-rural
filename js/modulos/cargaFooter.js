@@ -4,7 +4,10 @@ async function cargaFooter (){
     await fetch("footer.html")
       .then((response) => response.text())
       .then((codigo) => {
-        document.querySelector("#footer").innerHTML = codigo;
+        let foo = document.querySelector("#footer");
+        if(foo){
+          foo.innerHTML = codigo;
+        }
       });
   };
 

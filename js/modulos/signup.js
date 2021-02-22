@@ -1,20 +1,22 @@
 
 const procesarAlta = (usuario) => {
-        M.toast(
-            {html: "<span>Usuario dado de alta correctamente.</span>",classes:"green"},2000);
+    Materialize.toast('Usuario dado de alta correctamente!', 2000, 'green', console.log('Usuario dado de alta correctamente!'));
 
-            sessionStorage.setItem('idUsuario', usuario[0].id);
-            sessionStorage.setItem('nombre', usuario[0].nombre);
-            window.location='home.html';
+    sessionStorage.setItem('idUsuario', usuario.id);
+    sessionStorage.setItem('nombre', usuario.nombre);
+    window.location.assign('home.html');
 }
 
 export const generaAlta = (usuario) => {
 
-    let existe = comprobarUsuario(usuario.email);
-    console.log(existe);
-    
-    if(!existe){
-        fetch("http://localhost:3000/usuarios",{
+    let existe = comprobarUsuario(usuario);
+   
+        
+}
+
+async function gruardarUsuario(usuario){
+   
+        await fetch("http://localhost:3000/usuarios",{
             method:"POST",
             body: JSON.stringify(usuario),
             headers:{
@@ -23,32 +25,27 @@ export const generaAlta = (usuario) => {
         })
         .then(respuesta => respuesta.json())
         .then(usuario => procesarAlta(usuario))
-        .catch( error => {
-            M.toast({html: "Problemas con el alta",classes:"red"});
-        });
-    }
-    else{
-        console.log("usuario ya registrado");
-    }
+        
     
     
 }
 
-  async function comprobarUsuario(usuarioEmail){
+  async function comprobarUsuario(usuario){
 
-    let existe = false;
-
-    await fetch(`http://localhost:3000/usuarios/?email=${usuarioEmail}`, {
+    await fetch(`http://localhost:3000/usuarios/?email=${usuario.email}`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
           }
     })
     .then(respuesta =>  respuesta.json())
-    .then(datos => { if(datos[0].id > 0) existe = true})
+    .then(datos => { 
+        if(datos.length == 0) {gruardarUsuario(usuario);}
+        else{Materialize.toast('Usuario ya registrado!', 1000, 'red', console.log('Usuario ya registrado!'));}
+    })
     .catch(error => {
-        M.toast({html: "Usuario o contraseña erroneo",classes:"red"});
+        Materialize.toast('Problemas comprobando usuario!', 1000, 'red', console.log('Problemas comprobando usuario!'));
     })
 
-    return existe;
+  
 }

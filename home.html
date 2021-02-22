@@ -14,13 +14,156 @@
         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
       <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
   </head>
-  <body>   
-    <div id="menu"></div>
+  <body>
 
+    <div class="navbar navbar-fixed">
+      <nav class="z-depth-0 nav-extended">
+        <div class="nav-wrapper">
+          <div class="row">
+            <div class="col s12 light-green darken-3">
+            <div class="row valign-wrapper">
+            <a class="title col s6">HOTEL VACILON</a>
+              <ul id="opcionesMenu" class="col s6">
+                <li><a href="/home.html">Inicio</a></li>
+                <li><a href="/actividades.html">Actividades</a></li>
+                <li><a href="/habitaciones.html">Habitaciones</a></li>
+                <li><a href="/cabanyas.html">Cabañas</a></li>
+                <li><a href="/reservas.html">Reservas</a></li>
+                <li><a href="/nosotros.html">Nosotros</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>        
+              </ul>
+            </div>
+            </div>
+            <div class="nav-content">
+              <div class="col s12 nav-content light-green darken-4">
+                <ul class="tabs tabs-fixed-width light-green darken-4 z-depth-1">
+                    <li class="tab col s3"><a href="#pag_nosotros">SOBRE NOSOTROS</a></li>
+                    <li class="tab col s3"><a href="#pag_contacto">PÁGINA DE CONTACTO</a></li>
+                    <li class="tab col s3"><a href="#pag_rocodromo">NUESTRO ROCÓDROMO</a></li>
+                </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
 
+    <!-- CONTENIDO HOME / SOBRE NOSOTROS-->
+    <div id="pag_nosotros" style="margin-top:105px">
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-image">
+              <img src="img/nosotros-1.jpg" class="responsive-img">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col s12">
+          <div class="card light-green darken-3">
+            <div class="card-content white-text">
+              <p>Un lugar que te llenará de paz. El complejo rural Hotel Vacilón, a 20 Km. de la localidad de Narnia se encuentra situado a 1000 m. sobre el nivel del mar y junto a la orilla del río Vinalopó en su tramo más alto, lo que proporciona un microclima con temperaturas máximas de 33º y mínimas de 10 a 12º enverano.</p><br/>
+              <p>Si buscas ir de camping o alojamiento en Narnia, te ofrecemos bungalows, cabañas de madera y nuestro acogedor Hotel-refugio. Además, a la infinidad de rutas por la Sierra de Mordor, añadimos un completo programa de animación en temporada con infinidad de actividades multiaventura y veladas nocturnas totalmente gratis.</p><br/>
+              <p>Somos, además de todo lo anterior, expertos en organizar campamentos de verano y viajes de fin de curso para grupos. Nada mejor que un camping junto a un río, lejos del bullicio para pasar unos días en familia, en pareja o descubriendo por tu cuenta lo mucho que esta sierra tiene que ofrecer.</p><br/>
+              <p>Todas nuestras cabañas y bungalows disponen de ropa de cama, baño, televisión y cocina con menaje básico, nevera y microondas. Terraza con mesa y sillas y parking junto al alojamiento. Si busca alojamiento en la Sierra de Mordor, le asesoraremos para elegir el que mejor se adapte a sus necesidades.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-image">
+              <img src="img/nosotros-2.jpg" class="responsive-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- CONTENIDO HOME / CONTACTO-->
+    <div id="pag_contacto">
+      <div class="row" style="margin-top:105px">
+        <div class="col s12">
+          <div class="card">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3131.002930130419!2d-0.5353081847084715!3d38.302599879666886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6237a389dad265%3A0x15af7ad81ed13040!2sFederaci%C3%B3n%20de%20Empresarios%20del%20Metal%20de%20la%20Provincia%20de%20Alicante!5e0!3m2!1ses!2ses!4v1613843942624!5m2!1ses!2ses" width="100%" height="800" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+          <form class="col s12">
+              <div class="row">
+                  <div class="input-field col s6">
+                      <i class="material-icons prefix">account_circle</i>
+                      <input id="icon_prefix" type="text" class="validate">
+                      <label for="icon_prefix">Nombre</label>
+                  </div>
+                  <div class="input-field col s6">
+                      <i class="material-icons prefix">email</i>
+                      <input id="email" type="email" class="validate">
+                      <label for="email" data-error="Correo electrónico erróneo" data-success="right">Correo electrónico</label>
+                  </div>        
+              </div>
+              <div class="row">
+                  <div class="input-field col s12">
+                      <i class="material-icons prefix">message</i>
+                      <textarea id="textarea1" class="materialize-textarea"></textarea>
+                      <label for="textarea1">Mensaje</label>
+                  </div>
+              </div>
+          </form>
+      </div>    
+      <div class="row center">
+          <button class="btn light-green darken-4 z-depth-1" type="submit" name="action">ENVIAR
+              <i class="material-icons right">send</i>
+          </button>
+      </div>s
+    </div>
+
+    <!-- CONTENIDO HOME / NUESTRO ROCODROMO -->
+    <div id="pag_rocodromo" style="margin-top:105px">
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-image">
+              <img src="img/roco-1.jpg" class="responsive-img">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card light-green darken-3">
+            <div class="card-content white-text">
+              <p>Disponemos de un espacio de encuentro y disfrute creado para todos aquellos interesados en el mundo de la escalada.</p>
+              <p>Nuestro rocódromo ofrece amplias posibilidades tanto para los iniciados, como para aquellos que deseen adentrarse en este deporte.</p>
+              <p>Las instalaciones son amplias y variadas, aptas para satisfacer todos los niveles. Contamos con un gimnasio para calentar o ejercitarse, zona de descanso, cómodos vestuarios con duchas, y aparcabicis.</p>
+              <p>Debido a las actuales cirscuntancias provocadas por la pandemia hemos adoptado medidas para mantener una Instalación Segura para todos nuestros clientes y trabajadores, es por ello que se hace obligatorio el uso de mascarilla así como llevar magnesio liquido individual. MUCHAS GRACIAS.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-image">
+              <img src="img/roco-2.jpg" class="responsive-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div id="footer"></div>
+    
   </body>
 
   <script type="module" src="js/indice.js"></script>
+  <script type="text/javascript" src="js/mijquery.js"></script>
 </html>

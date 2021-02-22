@@ -9,13 +9,49 @@
 }
 
 .title{
-margin-top: 15px;
-font-weight: 800;
-color: transparent;
-font-size:100px;
-background: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e") repeat;
-background-position: 40% 50%;
--webkit-background-clip: text;
-line-height:90px;
-letter-spacing: -8px;
+	margin-top: 15px;
+	font-weight: 800;
+	color: transparent;
+	font-size:100px;
+	background: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e") repeat;
+	background-position: 40% 50%;
+	-webkit-background-clip: text;
+	line-height:90px;
+	letter-spacing: -8px;
+}
+
+.card-content {
+	font-size:20px;
+	letter-spacing: 2px;
+}
+
+.disp{
+	font-weight: 800;
+	font-size:60px;
+	letter-spacing: -2px;
+}
+
+.nomb{
+	font-weight: 450;
+	font-size: 35px;
+}
+
+.afor{
+	font-weight: 400;
+	font-size: 25px;
+}
+
+.desc{
+	font-weight: 400;
+	font-size: 20px;
+	letter-spacing: 1px;
+}
+
+.card-reveal{
+	color: #ffffff;
+	background-color: rgba(0,0,0,0.7) !important;
+}
+
+div.card-reveal span.card-title{
+	color: #ffffff !important;
 }

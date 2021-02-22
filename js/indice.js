@@ -5,11 +5,16 @@ import { generaAlta } from "./modulos/signup.js";
 import { misReservas } from "./modulos/reservas.js";
 import { cargaMenu } from "./modulos/cargaMenu.js";
 import { cargaFooter } from "./modulos/cargaFooter.js";
+import {listarDisponibles} from "./modulos/generarReserva.js";
+import { logout } from "./modulos/logout.js";
+
 
 // Para la página de inicio
 let loginForm = document.querySelector("#login-form");
 // Página signup. Alta de usuario
 let altaUsuario = document.querySelector("#signup-form");
+
+let buscarPorFecha = document.querySelector('#buscarForm');
 
 // Para detectar que estamos en la página 
 let pagina = window.location;
@@ -36,18 +41,22 @@ let pagina = window.location;
 
 
 //cargamos el extra menu solo en home
-const cargaExtraMenuHome = () =>{
+const cargaExtraMenuHome = async () =>{
 
-  fetch("index_navbar.html")
-    .then((response) => response.text())
+    await fetch("index_navbar.html")
+    .then((response) =>  response.text())
     .then((codigo) => {
-      document.querySelector("#index_navbar").innerHTML = codigo;
+      let nav = document.querySelector("#index_navbar");
+      if(nav){
+        nav.innerHTML = codigo;
+      }
     });
 }
 //FIJAROS EN VUESTRO PATH, MI CARPETA SE LLAMA hotel-rural ADAPTAR AL VUESTRO
 if(pagina.pathname != "/"  && pagina.pathname != "/index.html")
   cargaMenu();
-  
+
+
 
 // Botón Login de página principal
 if (loginForm !== null) {
@@ -95,6 +104,29 @@ if (pagina.pathname == "/actividades.html") {
 // Página reservas, carga los datos de la BD.
 if (pagina.pathname == "/reservas.html") {
   misReservas();
+  //si recibo una busqueda
+  if(buscarPorFecha){
+    buscarPorFecha.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let dato = {};
+      dato.fechaInicio = document.querySelector("#fechaInicio").value;
+      dato.fechaFin = document.querySelector("#fechaFin").value;
+      dato.seleccion = document.querySelector("#seleccionReserva").value;
+      if(dato.fechaInicio && dato.fechaFin && dato.seleccion){
+        listarDisponibles(dato);
+      }
+      else{
+        M.toast({html: "No has rellenado los campos",classes:"red"});
+      }
+      
+    });
+  }
+
+  //datepicker
+
+  var $input = $('.datepicker').datepicker({autoClose:true, format: 'yyyy-mm-dd'});
+  $('select').formSelect();
+
 }
 
 // Alta usuario página signup
@@ -111,7 +143,15 @@ if (altaUsuario !== null) {
 
 cargaFooter();
 
-if ($('#tabs_swipe').length) {
-      $('#tabs_swipe').tabs({ 'swipeable': true });
+window.onload = ()=>{
+  //añado evento a logout menu
+  let btnLogout = document.querySelector('#logout-menu');
+  if(btnLogout){
+    btnLogout.addEventListener('click', ()=>{
+      console.log('logout');
+      logout();
+    })
+    
+  }
 }
-$('.tooltipped').tooltip();
+

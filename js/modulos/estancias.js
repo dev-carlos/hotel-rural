@@ -1,34 +1,44 @@
-
-
 export const muestraEstancias = (estancia, reserva) => {
 
     let divEstancias;
     if(reserva){
         divEstancias = document.querySelector('#reservasEstancia');
+        
     }
     else{
         divEstancias = document.querySelector('#estancias');
     }
+   
      
     let tipo = estancia.tipo === 'h' ? 'Habitacion' : 'Cabaña';
-    let salida = `
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">${estancia.nombre}</span>
-                    <h5>Características:</h5>
-                    <ul>
-                        <li>Tipo estancia: ${tipo}</li>
-                        <li>Aforo: ${estancia.aforo}</li>
-                        <li>Descripcion: ${estancia.descripcion}</li>
-                        <li>${estancia.precio}</li>
-                    </ul>`;
+    let reservaTxt;
+    if(reserva){
+        reservaTxt = `<h4>Ha sido reservado del dia ${reserva.fechaInicio} al dia ${reserva.fechaFin}</h4>`;
+    }
+    else{
+        reservaTxt = '';
+    }
+    let salida =`<div class="col s6">
+                    <div class="card hover-reveal">
+                        <div class="card-image">
+                            <img class="activator responsive-img" src="${estancia.imgsrc}">
+                        </div>
+                        <div class="card-content">
+                            <span class="nomb">${estancia.nombre}</span>
+                            <span>${reservaTxt}</span>
+                        </div>
+                        <div class="card-action">
+                            <a href="reservas.html" class="orange-text text-darken-4">Consultar disponibilidad de reserva</a>
+                        </div>
+                        <div class="card-reveal">
+                            <span class=" nomb">${estancia.nombre}<i class="material-icons right card-title">close</i></span>
+                            <p><i class="small material-icons">group</i><span class="afor"> &nbsp${estancia.aforo}</p>
+                            <p><i class="small material-icons">hotel</i><span class="afor"> &nbsp${estancia.precio} €</p>
+                            <p class="desc">${estancia.descripcion}</p>
+                        </div>
+                    </div>
+                </div>`;
     
-            if (reserva) {
-                salida += `<h4>Ha sido reservado del dia ${reserva.fechaInicio} al dia ${reserva.fechaFin}</h4>`;
-            }
-    salida +=  `</div>
-            </div>`;
-
 
     let e = document.createElement("div");
     e.innerHTML = salida;

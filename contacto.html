@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <title>HOTEL RURAL VACILÓN</title>
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+    <meta charset="UTF-8">
+    <link rel = "stylesheet"
+       href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel = "stylesheet" 
+       href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <link rel = "stylesheet"
+    href = "css/home.css">
+    <script type = "text/javascript"
+       src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+    </script> 
+ </head>
+
+  <body>
+    <div class="row" id="menu"></div>
+
+    <div class="row" style="margin-top:65px">
+      <div class="col s12">
+        <div class="card">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3131.002930130419!2d-0.5353081847084715!3d38.302599879666886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6237a389dad265%3A0x15af7ad81ed13040!2sFederaci%C3%B3n%20de%20Empresarios%20del%20Metal%20de%20la%20Provincia%20de%20Alicante!5e0!3m2!1ses!2ses!4v1613843942624!5m2!1ses!2ses" width="100%" height="800" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Nombre</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" type="email" class="validate">
+                    <label for="email" data-error="Correo electrónico erróneo" data-success="right">Correo electrónico</label>
+                </div>        
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">message</i>
+                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Mensaje</label>
+                </div>
+            </div>
+        </form>
+    </div>    
+    <div class="row center">
+        <button class="btn light-green darken-4 z-depth-1" type="submit" name="action">ENVIAR
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
+
+    <div id="footer"></div>
+    <script type="module" src="js/indice.js"></script>
+    
+  </body>
+</html>

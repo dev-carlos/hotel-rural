@@ -5,11 +5,12 @@ const login_f = (dato) => {
     if (dato[0].email == document.querySelector("#email-login").value && dato[0].password == window.btoa(document.querySelector("#password-login").value)) { 
         sessionStorage.setItem('idUsuario', dato[0].id);
         sessionStorage.setItem('nombre', dato[0].nombre);
+        Materialize.toast('login ok!', 1000, 'green', console.log('login ok!'));
         window.location='home.html';
         
     }
     else {
-        M.toast({html: "Usuario o contraseña erroneo",classes:"red"},3000);
+        Materialize.toast('error de email o password!', 1000, 'red', console.log('error de email o password!'));
     }
 }
 
@@ -24,6 +25,7 @@ export const enviaLogin = (usuario)=>{
     .then(respuesta =>  respuesta.json())
     .then(datos => login_f(datos))
     .catch(error => {
-        M.toast({html: "Usuario o contraseña erroneo",classes:"red"});
+        Materialize.toast('error de login!', 1000, 'red', console.log('error de login!'));
+
     })
 };
