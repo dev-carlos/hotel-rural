@@ -56,9 +56,9 @@ export const misReservas = () => {
       .then((respuesta) => respuesta.json())
       .then((datos) => muestraReservas(datos))
       .catch((error) => {
-        Materialize.toast('No hay reservas para este usuario!', 1000, 'red', console.log('No hay reservas para este usuario!'));
+        M.toast({html: "No hay reservas para el usuario actual!",classes:"red"});
       });
   } else {
-    Materialize.toast('No estas logueado!', 1000, 'red', console.log('No estás logueado!'));
+    M.toast({html: "No estás logueado!",classes:"red"});
   }
 };

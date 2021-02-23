@@ -41,7 +41,7 @@ let pagina = window.location;
 
 
 //cargamos el extra menu solo en home
-const cargaExtraMenuHome = async () =>{
+/* const cargaExtraMenuHome = async () =>{
 
     await fetch("index_navbar.html")
     .then((response) =>  response.text())
@@ -51,9 +51,9 @@ const cargaExtraMenuHome = async () =>{
         nav.innerHTML = codigo;
       }
     });
-}
+} */
 //FIJAROS EN VUESTRO PATH, MI CARPETA SE LLAMA hotel-rural ADAPTAR AL VUESTRO
-if(pagina.pathname != "/"  && pagina.pathname != "/index.html")
+if(pagina.pathname != "/"  && pagina.pathname != "/index.html" && pagina.pathname != "/home.html")
   cargaMenu();
 
 
@@ -73,7 +73,17 @@ if (loginForm !== null) {
 
 // Página home, carga los datos de la .
 if (pagina.pathname == "/home.html") {
-  cargaExtraMenuHome();
+  //añado icono de login/logout
+  let li = document.createElement('li');
+  let op = document.querySelector('#opcionesMenu');
+  if(sessionStorage.nombre){    
+    li.innerHTML = `<li id="logout-menu"><span><i class="material-icons">exit_to_app</i></span></li>`; 
+  }
+  else{
+    li.innerHTML = `<li id="login-menu"><a href="/index.html"><i class="material-icons">perm_identity</i></a></li>`;
+    
+  }
+  op.appendChild(li);
 }
 
 // Página sobre nosotros, carga los datos de la .
@@ -126,6 +136,7 @@ if (pagina.pathname == "/reservas.html") {
 
   var $input = $('.datepicker').datepicker({autoClose:true, format: 'yyyy-mm-dd'});
   $('select').formSelect();
+  $(".button-collapse").sideNav();
 
 }
 
